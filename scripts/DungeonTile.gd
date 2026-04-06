@@ -2,6 +2,14 @@
 class_name DungeonTile
 extends Resource
 
+#adding the dungeontile directions
+
+const NORTH := 1
+const SOUTH := 2
+const EAST := 4
+const WEST := 8
+
+
 enum TileType {
 	EMPTY,
 	ROOM,
@@ -28,8 +36,9 @@ enum TileType {
 @export var symbol: String = ""
 @export var category: String = ""
 @export var is_overlay: bool = false  # If true, this tile is drawn on top of a base tile (rather than replacing it)
+@export var tile_openings: int = 0 #bitmask operations with North = 1, South = 2, East = 4, West = 8
 
-static func create(type: TileType, name: String, col: Color, sym: String, cat: String, overlay: bool = false) -> DungeonTile:
+static func create(type: TileType, name: String, col: Color, sym: String, cat: String, overlay: bool = false, _opens: int = 0) -> DungeonTile:
 	var tile = DungeonTile.new()
 	tile.tile_type = type
 	tile.display_name = name
@@ -37,4 +46,5 @@ static func create(type: TileType, name: String, col: Color, sym: String, cat: S
 	tile.symbol = sym
 	tile.category = cat
 	tile.is_overlay = overlay
+	tile.tile_openings = _opens
 	return tile
