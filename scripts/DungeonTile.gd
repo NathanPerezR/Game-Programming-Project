@@ -38,7 +38,7 @@ enum TileType {
 @export var is_overlay: bool = false  # If true, this tile is drawn on top of a base tile (rather than replacing it)
 @export var tile_openings: int = 0 #bitmask operations with North = 1, South = 2, East = 4, West = 8
 
-static func create(type: TileType, name: String, col: Color, sym: String, cat: String, overlay: bool = false, _opens: int = 0) -> DungeonTile:
+static func create(type: TileType, name: String, col: Color, sym: String, cat: String, overlay: bool = false, opens: int = 0) -> DungeonTile:
 	var tile = DungeonTile.new()
 	tile.tile_type = type
 	tile.display_name = name
@@ -46,5 +46,5 @@ static func create(type: TileType, name: String, col: Color, sym: String, cat: S
 	tile.symbol = sym
 	tile.category = cat
 	tile.is_overlay = overlay
-	tile.tile_openings = _opens
+	tile.tile_openings = opens
 	return tile
