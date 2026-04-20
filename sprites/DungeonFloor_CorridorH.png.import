@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccmwo1d0eswlw"
-path="res://.godot/imported/DungeonFloor_Base.png-5a7ce379900041fe1bac4fcda6bdd39b.ctex"
+uid="uid://bf6gdyk2xs5u6"
+path="res://.godot/imported/DungeonFloor_CorridorH.png-10e7c6dc7aca6bf960fc5470edb96b0c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/DungeonFloor_Base.png"
-dest_files=["res://.godot/imported/DungeonFloor_Base.png-5a7ce379900041fe1bac4fcda6bdd39b.ctex"]
+source_file="res://sprites/DungeonFloor_CorridorH.png"
+dest_files=["res://.godot/imported/DungeonFloor_CorridorH.png-10e7c6dc7aca6bf960fc5470edb96b0c.ctex"]
 
 [params]
 
