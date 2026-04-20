@@ -15,6 +15,11 @@ run/main_scene="res://scripts/main.tscn"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[layer_names]
+
+2d_navigation/layer_1="Walkable"
+2d_physics/layer_4="Walls"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
