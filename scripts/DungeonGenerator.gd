@@ -6,12 +6,15 @@ class_name DungeonGenerator
 ## An extend description
 
 ## The directions of travel
+"""
 const DIRECTIONS = [
 	[ 0,-1],
 	[ 0, 1],
 	[-1, 0],
 	[ 1, 0],
 ]
+"""
+
 
 @export var tileset: TileSet 
 @export var seed: int = 100
@@ -36,12 +39,9 @@ func _init_grid() -> Array:
 	visited = []
 	for r in b_height:
 		var grid_row = []
-		var vis_row = []
 		for c in b_width:
 			grid_row.append(null)
-			vis_row.append(null)
 		grid.append(grid_row)
-		visited.append(vis_row)
 	return grid
 
 func build_base_array():
@@ -129,11 +129,3 @@ func _build_base_array(pos_x: int, pos_y: int, grid: Array[Array], mask: int ) -
 			fringe.append(Vector2i(pos_x,pos_y-1))	
 		
 	return	grid
-	
-	
-	
-
-
-
-
-	# var rng = RandomNumberGenerator.new()

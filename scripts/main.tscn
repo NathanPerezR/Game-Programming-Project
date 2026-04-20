@@ -2,17 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bf3lusashb1l1" path="res://scripts/Main.gd" id="1_main"]
 [ext_resource type="Script" uid="uid://bpx0sl7368wn4" path="res://scripts/DungeonGenerator.gd" id="2_m1sh3"]
-[ext_resource type="Script" uid="uid://cxe010qtt07hy" path="res://scripts/DungeonTile.gd" id="3_0im0j"]
 [ext_resource type="TileSet" uid="uid://c8hd56rj5g85t" path="res://scripts/DungeonDemoPath.tres" id="3_hakmx"]
-
-[sub_resource type="Resource" id="Resource_j021q"]
-script = ExtResource("3_0im0j")
-display_name = "Tile bob"
-metadata/_custom_type_script = "uid://cxe010qtt07hy"
-
-[sub_resource type="Resource" id="Resource_hakmx"]
-script = ExtResource("3_0im0j")
-metadata/_custom_type_script = "uid://cxe010qtt07hy"
 
 [node name="Main" type="Node" unique_id=1605965920]
 script = ExtResource("1_main")
@@ -20,8 +10,6 @@ script = ExtResource("1_main")
 [node name="DungeonGenerator" type="Node" parent="." unique_id=876619843]
 script = ExtResource("2_m1sh3")
 tileset = ExtResource("3_hakmx")
-seed = null
-base_data = Array[ExtResource("3_0im0j")]([SubResource("Resource_j021q"), SubResource("Resource_hakmx"), null])
 metadata/_custom_type_script = "uid://bpx0sl7368wn4"
 
 [node name="TileMapLayer" type="TileMapLayer" parent="DungeonGenerator" unique_id=2009512855]
