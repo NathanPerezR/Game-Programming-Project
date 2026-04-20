@@ -8,8 +8,11 @@
 [node name="Node" type="Node" parent="." unique_id=2074739748 node_paths=PackedStringArray("tileMap")]
 script = ExtResource("2_5lntk")
 tileMap = NodePath("TileMapLayer")
+MAXTILES = 9
 pattern_width = 3
 pattern_height = 3
+num_w_cell = 3
+num_h_cell = 3
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Node" unique_id=2061756589]
 tile_set = ExtResource("3_w2vy6")
