@@ -7,7 +7,7 @@ extends PanelContainer
 const BUTTON_SIZE = Vector2(56, 56)
 const TILE_FONT_SIZE: int = 18
 
-var tile_definitions: Array[DungeonTile] = []
+static var tile_definitions: Array[DungeonTile] = []
 var selected_button: Button = null
 var selected_tile: DungeonTile = null
 
@@ -21,17 +21,17 @@ func _build_tile_definitions() -> void:
 	tile_definitions.append(DungeonTile.create(DungeonTile.TileType.ROOM,       "Room",         Color(0.35, 0.30, 0.22), "Room", "Rooms"))
 	tile_definitions.append(DungeonTile.create(DungeonTile.TileType.ENTRANCE,   "Entrance",     Color(0.20, 0.55, 0.30), "Enter", "Rooms"))
 
-	tile_definitions.append(DungeonTile.create(DungeonTile.TileType.CORRIDOR_H,     "Corridor H",   Color(0.28, 0.25, 0.20), "━",  "Corridors"))
-	tile_definitions.append(DungeonTile.create(DungeonTile.TileType.CORRIDOR_V,     "Corridor V",   Color(0.28, 0.25, 0.20), "┃",  "Corridors"))
-	tile_definitions.append(DungeonTile.create(DungeonTile.TileType.CORRIDOR_CROSS, "Cross",        Color(0.28, 0.25, 0.20), "╋",  "Corridors"))
-	tile_definitions.append(DungeonTile.create(DungeonTile.TileType.CORRIDOR_T_UP,    "T-Up",       Color(0.28, 0.25, 0.20), "┻",  "Corridors"))
-	tile_definitions.append(DungeonTile.create(DungeonTile.TileType.CORRIDOR_T_DOWN,  "T-Down",     Color(0.28, 0.25, 0.20), "┳",  "Corridors"))
-	tile_definitions.append(DungeonTile.create(DungeonTile.TileType.CORRIDOR_T_LEFT,  "T-Left",     Color(0.28, 0.25, 0.20), "┫",  "Corridors"))
-	tile_definitions.append(DungeonTile.create(DungeonTile.TileType.CORRIDOR_T_RIGHT, "T-Right",    Color(0.28, 0.25, 0.20), "┣",  "Corridors"))
-	tile_definitions.append(DungeonTile.create(DungeonTile.TileType.CORNER_TL,  "Corner TL",    Color(0.28, 0.25, 0.20), "┛",  "Corridors"))
-	tile_definitions.append(DungeonTile.create(DungeonTile.TileType.CORNER_TR,  "Corner TR",    Color(0.28, 0.25, 0.20), "┗",  "Corridors"))
-	tile_definitions.append(DungeonTile.create(DungeonTile.TileType.CORNER_BL,  "Corner BL",    Color(0.28, 0.25, 0.20), "┓",  "Corridors"))
-	tile_definitions.append(DungeonTile.create(DungeonTile.TileType.CORNER_BR,  "Corner BR",    Color(0.28, 0.25, 0.20), "┏",  "Corridors"))
+	tile_definitions.append(DungeonTile.create(DungeonTile.TileType.CORRIDOR_H,     "Corridor H",   Color(0.28, 0.25, 0.20), "━",  "Corridors",false, DungeonTile.EAST|DungeonTile.WEST))
+	tile_definitions.append(DungeonTile.create(DungeonTile.TileType.CORRIDOR_V,     "Corridor V",   Color(0.28, 0.25, 0.20), "┃",  "Corridors", false, DungeonTile.NORTH | DungeonTile.SOUTH))
+	tile_definitions.append(DungeonTile.create(DungeonTile.TileType.CORRIDOR_CROSS, "Cross",        Color(0.28, 0.25, 0.20), "╋",  "Corridors", false, DungeonTile.NORTH|DungeonTile.SOUTH|DungeonTile.EAST|DungeonTile.WEST))
+	tile_definitions.append(DungeonTile.create(DungeonTile.TileType.CORRIDOR_T_UP,    "T-Up",       Color(0.28, 0.25, 0.20), "┻",  "Corridors",false, DungeonTile.NORTH|DungeonTile.EAST|DungeonTile.WEST))
+	tile_definitions.append(DungeonTile.create(DungeonTile.TileType.CORRIDOR_T_DOWN,  "T-Down",     Color(0.28, 0.25, 0.20), "┳",  "Corridors",false, DungeonTile.SOUTH|DungeonTile.EAST|DungeonTile.WEST))
+	tile_definitions.append(DungeonTile.create(DungeonTile.TileType.CORRIDOR_T_LEFT,  "T-Left",     Color(0.28, 0.25, 0.20), "┫",  "Corridors", false, DungeonTile.NORTH|DungeonTile.SOUTH|DungeonTile.WEST))
+	tile_definitions.append(DungeonTile.create(DungeonTile.TileType.CORRIDOR_T_RIGHT, "T-Right",    Color(0.28, 0.25, 0.20), "┣",  "Corridors", false, DungeonTile.NORTH|DungeonTile.SOUTH|DungeonTile.EAST))
+	tile_definitions.append(DungeonTile.create(DungeonTile.TileType.CORNER_TL,  "Corner TL",    Color(0.28, 0.25, 0.20), "┛",  "Corridors",false, DungeonTile.NORTH|DungeonTile.WEST))
+	tile_definitions.append(DungeonTile.create(DungeonTile.TileType.CORNER_TR,  "Corner TR",    Color(0.28, 0.25, 0.20), "┗",  "Corridors", false, DungeonTile.NORTH|DungeonTile.EAST))
+	tile_definitions.append(DungeonTile.create(DungeonTile.TileType.CORNER_BL,  "Corner BL",    Color(0.28, 0.25, 0.20), "┓",  "Corridors", false, DungeonTile.SOUTH|DungeonTile.WEST))
+	tile_definitions.append(DungeonTile.create(DungeonTile.TileType.CORNER_BR,  "Corner BR",    Color(0.28, 0.25, 0.20), "┏",  "Corridors", false, DungeonTile.SOUTH|DungeonTile.EAST))
 
 	tile_definitions.append(DungeonTile.create(DungeonTile.TileType.MONSTER,    "Monster",      Color(0.65, 0.28, 0.10), "M",  "Encounters", true))
 	tile_definitions.append(DungeonTile.create(DungeonTile.TileType.BOSS,       "Boss",         Color(0.75, 0.10, 0.10), "Boss", "Encounters", true))

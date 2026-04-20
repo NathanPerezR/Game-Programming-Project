@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="TileRegistry" format=3 uid="uid://cft0egjhcorhv"]
+
+[ext_resource type="Script" uid="uid://3fji7lh5bun5" path="res://scripts/TileRegistry.gd" id="1_qb4ml"]
+[ext_resource type="Script" uid="uid://cxe010qtt07hy" path="res://scripts/DungeonTile.gd" id="2_7g3ye"]
+
+[resource]
+script = ExtResource("1_qb4ml")
+metadata/_custom_type_script = "uid://3fji7lh5bun5"

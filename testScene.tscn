@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dhxgwb3ppb01n"]
+
+[ext_resource type="Script" uid="uid://r11tmqd7audp" path="res://TileMapGenerator.gd" id="2_5lntk"]
+[ext_resource type="TileSet" uid="uid://c8hd56rj5g85t" path="res://scripts/DungeonDemoPath.tres" id="3_w2vy6"]
+
+[node name="Node2D" type="Node2D" unique_id=703870732]
+
+[node name="Node" type="Node" parent="." unique_id=2074739748 node_paths=PackedStringArray("tileMap")]
+script = ExtResource("2_5lntk")
+tileMap = NodePath("TileMapLayer")
+MAXTILES = 9
+pattern_width = 3
+pattern_height = 3
+num_w_cell = 3
+num_h_cell = 3
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Node" unique_id=2061756589]
+tile_set = ExtResource("3_w2vy6")
