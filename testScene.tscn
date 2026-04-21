@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dhxgwb3ppb01n"]
 
 [ext_resource type="Script" uid="uid://r11tmqd7audp" path="res://TileMapGenerator.gd" id="2_5lntk"]
-[ext_resource type="TileSet" uid="uid://c8hd56rj5g85t" path="res://scripts/DungeonDemoPath.tres" id="3_w2vy6"]
+[ext_resource type="TileSet" uid="uid://b56roxkxybviw" path="res://128tilepattern.tres" id="2_vixnb"]
 
 [node name="Node2D" type="Node2D" unique_id=703870732]
 
@@ -15,4 +15,4 @@ num_w_cell = 3
 num_h_cell = 3
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Node" unique_id=2061756589]
-tile_set = ExtResource("3_w2vy6")
+tile_set = ExtResource("2_vixnb")

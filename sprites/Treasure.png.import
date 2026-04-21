@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://o0ggjgv77ifl"
-path="res://.godot/imported/VineyWall_NoEarth_Texture.png-0dac31c4b3fc7994db06f03ac2b45323.ctex"
+uid="uid://ckgq1dlrhe1hj"
+path="res://.godot/imported/Treasure.png-90a68ab3a4f4d054c02477f474b43a78.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/VineyWall_NoEarth_Texture.png"
-dest_files=["res://.godot/imported/VineyWall_NoEarth_Texture.png-0dac31c4b3fc7994db06f03ac2b45323.ctex"]
+source_file="res://sprites/Treasure.png"
+dest_files=["res://.godot/imported/Treasure.png-90a68ab3a4f4d054c02477f474b43a78.ctex"]
 
 [params]
 
