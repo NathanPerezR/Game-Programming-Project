@@ -1,3 +1,4 @@
+@tool
 extends Node
 class_name TileMapGenerator
 ## The class makes generators. Its pretty cool
@@ -18,6 +19,7 @@ enum PatternId {
 	L_SOUTH_WEST,
 }
 
+@export_tool_button("generate", "Callable") var gen = _for_debug_gen
 
 ## TileMapLayer that receives the generated patterns.
 @export var tileMap: TileMapLayer
@@ -48,6 +50,9 @@ var MAX_H_CELL: int
 var curr_pos:Vector2i
 var visited: Array = []
 
+func _for_debug_gen()->void:
+	assert(tileMap.tile_set, "Tile set was not provided in the tilemap layer")
+	gen_map(num_w_cell, num_h_cell, MAXTILES)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
