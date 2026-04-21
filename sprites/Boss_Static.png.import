@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccwkf6dwgdyrb"
-path="res://.godot/imported/DungeonFloor_NorthSouth_LeftTile.png-3dc985d87fac49006bb0724b90fe7eb3.ctex"
+uid="uid://dveye146n2uox"
+path="res://.godot/imported/Boss_Static.png-12551b9848c7f22a22beeb91af24cd85.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/DungeonFloor_NorthSouth_LeftTile.png"
-dest_files=["res://.godot/imported/DungeonFloor_NorthSouth_LeftTile.png-3dc985d87fac49006bb0724b90fe7eb3.ctex"]
+source_file="res://sprites/Boss_Static.png"
+dest_files=["res://.godot/imported/Boss_Static.png-12551b9848c7f22a22beeb91af24cd85.ctex"]
 
 [params]
 

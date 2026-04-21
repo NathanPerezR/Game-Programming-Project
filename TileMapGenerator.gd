@@ -1,11 +1,25 @@
+@tool
 extends Node
 class_name TileMapGenerator
 ## The class makes generators. Its pretty cool
 ##
 ## 
 
+enum PatternId {
+	CROSS,
+	STRAIGHT_HORIZONTAL,
+	STRAIGHT_VERTICAL,
+	T_WEST,
+	T_EAST,
+	T_SOUTH,
+	T_NORTH,
+	L_NORTH_WEST,
+	L_NORTH_EAST,
+	L_SOUTH_EAST,
+	L_SOUTH_WEST,
+}
 
-
+@export_tool_button("generate", "Callable") var gen = _for_debug_gen
 
 ## TileMapLayer that receives the generated patterns.
 @export var tileMap: TileMapLayer
@@ -36,6 +50,9 @@ var MAX_H_CELL: int
 var curr_pos:Vector2i
 var visited: Array = []
 
+func _for_debug_gen()->void:
+	assert(tileMap.tile_set, "Tile set was not provided in the tilemap layer")
+	gen_map(num_w_cell, num_h_cell, MAXTILES)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -67,6 +84,12 @@ func _append_unique(items: Array[Variant], arr:Array) -> void:
 		if not arr.has(i):
 			arr.append(i)
 
+func _is_walkable_cell(pos: Vector2i) -> bool:
+	var tile_data := tileMap.get_cell_tile_data(pos)
+	if tile_data == null:
+		return false
+	return tile_data.get_custom_data("walkable") == true
+
 ## Chooses a random pattern that fits the current position based on
 ## neighboring openings around curr_pos.
 ##
@@ -95,7 +118,7 @@ func choose_rand_pattern()-> TileMapPattern:
 		}
 	for key in dir:
 		print("Current ID of Tile: ", tileMap.get_cell_source_id(dir[key]))
-		if tileMap.get_cell_source_id(dir[key]) == 0:
+		if _is_walkable_cell(dir[key]):
 			d[key] = true	
 		
 	# If there are no required openings, pick any pattern at random.
@@ -110,43 +133,43 @@ func choose_rand_pattern()-> TileMapPattern:
 	var openings: Array = []
 	if d["north"] == true:
 		_append_unique([
-			tileMap.tile_set.get_pattern(0),
-			tileMap.tile_set.get_pattern(1),
-			tileMap.tile_set.get_pattern(2),
-			tileMap.tile_set.get_pattern(4),
-			tileMap.tile_set.get_pattern(5),
-			tileMap.tile_set.get_pattern(9),
-			tileMap.tile_set.get_pattern(10),
+			tileMap.tile_set.get_pattern(PatternId.CROSS),
+			tileMap.tile_set.get_pattern(PatternId.STRAIGHT_VERTICAL),
+			tileMap.tile_set.get_pattern(PatternId.T_NORTH),
+			tileMap.tile_set.get_pattern(PatternId.T_WEST),
+			tileMap.tile_set.get_pattern(PatternId.T_EAST),
+			tileMap.tile_set.get_pattern(PatternId.L_NORTH_WEST),
+			tileMap.tile_set.get_pattern(PatternId.L_NORTH_EAST),
 			], openings)
 	if d["south"] == true:
 		_append_unique([
-			tileMap.tile_set.get_pattern(0),
-			tileMap.tile_set.get_pattern(2),
-			tileMap.tile_set.get_pattern(6),
-			tileMap.tile_set.get_pattern(7),
-			tileMap.tile_set.get_pattern(8),
-			tileMap.tile_set.get_pattern(9),
-			tileMap.tile_set.get_pattern(10),
+			tileMap.tile_set.get_pattern(PatternId.CROSS),
+			tileMap.tile_set.get_pattern(PatternId.STRAIGHT_VERTICAL),
+			tileMap.tile_set.get_pattern(PatternId.T_WEST),
+			tileMap.tile_set.get_pattern(PatternId.T_EAST),
+			tileMap.tile_set.get_pattern(PatternId.T_SOUTH),
+			tileMap.tile_set.get_pattern(PatternId.L_SOUTH_EAST),
+			tileMap.tile_set.get_pattern(PatternId.L_SOUTH_WEST),
 			], openings)
 	if d["east"] == true:
 		_append_unique([
-			tileMap.tile_set.get_pattern(0),
-			tileMap.tile_set.get_pattern(1),
-			tileMap.tile_set.get_pattern(3),
-			tileMap.tile_set.get_pattern(5),
-			tileMap.tile_set.get_pattern(6),
-			tileMap.tile_set.get_pattern(8),
-			tileMap.tile_set.get_pattern(10),
+			tileMap.tile_set.get_pattern(PatternId.CROSS),
+			tileMap.tile_set.get_pattern(PatternId.STRAIGHT_HORIZONTAL),
+			tileMap.tile_set.get_pattern(PatternId.T_SOUTH),
+			tileMap.tile_set.get_pattern(PatternId.T_NORTH),
+			tileMap.tile_set.get_pattern(PatternId.T_EAST),
+			tileMap.tile_set.get_pattern(PatternId.L_NORTH_EAST),
+			tileMap.tile_set.get_pattern(PatternId.L_SOUTH_EAST),
 			], openings)
 	if d["west"] == true:
 		_append_unique([
-			tileMap.tile_set.get_pattern(0),
-			tileMap.tile_set.get_pattern(1),
-			tileMap.tile_set.get_pattern(3),
-			tileMap.tile_set.get_pattern(4),
-			tileMap.tile_set.get_pattern(7),
-			tileMap.tile_set.get_pattern(8),
-			tileMap.tile_set.get_pattern(9),
+			tileMap.tile_set.get_pattern(PatternId.CROSS),
+			tileMap.tile_set.get_pattern(PatternId.STRAIGHT_HORIZONTAL),
+			tileMap.tile_set.get_pattern(PatternId.T_WEST),
+			tileMap.tile_set.get_pattern(PatternId.T_SOUTH),
+			tileMap.tile_set.get_pattern(PatternId.T_NORTH),
+			tileMap.tile_set.get_pattern(PatternId.L_NORTH_WEST),
+			tileMap.tile_set.get_pattern(PatternId.L_SOUTH_WEST),
 			], openings)
 	return openings.pick_random()
 	
@@ -181,7 +204,7 @@ func _find_openings(_pattern: TileMapPattern) -> Dictionary[String,Vector2i]:
  
 	var openings: Dictionary[String, Vector2i] = {}
 	for key in dir:
-		if tileMap.get_cell_source_id(dir[key]) == 0 and _in_range(dir[key]):
+		if _is_walkable_cell(dir[key]) and _in_range(dir[key]):
 			openings[key] = dir[key]
 	return openings			
 	

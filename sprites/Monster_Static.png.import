@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cn1wxp1w3isx2"
-path="res://.godot/imported/DungeonFloor_EastWest_BottomTile.png-448ed015046f4bee97b75bf2e95dc722.ctex"
+uid="uid://bsy86q5cft8bl"
+path="res://.godot/imported/Monster_Static.png-2ed5d27eb1dd3a85a2da64d281af0492.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/DungeonFloor_EastWest_BottomTile.png"
-dest_files=["res://.godot/imported/DungeonFloor_EastWest_BottomTile.png-448ed015046f4bee97b75bf2e95dc722.ctex"]
+source_file="res://sprites/Monster_Static.png"
+dest_files=["res://.godot/imported/Monster_Static.png-2ed5d27eb1dd3a85a2da64d281af0492.ctex"]
 
 [params]
 

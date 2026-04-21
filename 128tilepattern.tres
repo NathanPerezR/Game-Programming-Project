@@ -1,0 +1,264 @@
+[gd_resource type="TileSet" format=3 uid="uid://b56roxkxybviw"]
+
+[ext_resource type="Texture2D" uid="uid://ccmwo1d0eswlw" path="res://sprites/DungeonFloor_Base.png" id="1_h4khw"]
+[ext_resource type="Texture2D" uid="uid://b8fe83p7ultq0" path="res://sprites/DungeonFloor_CornerBL.png" id="2_juxv3"]
+[ext_resource type="Texture2D" uid="uid://c857uk8vwb3gh" path="res://sprites/DungeonFloor_T-Left.png" id="3_6qird"]
+[ext_resource type="Texture2D" uid="uid://dv7juw83x1qd2" path="res://sprites/DungeonFloor_T-Right.png" id="4_d6vae"]
+[ext_resource type="Texture2D" uid="uid://cqkjg64t4td1v" path="res://sprites/DungeonFloor_T-Up.png" id="5_o6p7f"]
+[ext_resource type="Texture2D" uid="uid://dmc7v2lsf18ss" path="res://sprites/DungeonWall_Border.png" id="6_4wv3i"]
+[ext_resource type="Texture2D" uid="uid://cwsd34jn7ib81" path="res://sprites/DungeonWall_OuterBorder.png" id="7_m1dl8"]
+[ext_resource type="Texture2D" uid="uid://dnxgunetgysgs" path="res://sprites/DungeonFloor_CornerBR.png" id="8_br72c"]
+[ext_resource type="Texture2D" uid="uid://btfei7yx7petm" path="res://sprites/DungeonFloor_CornerTL.png" id="9_tyn7l"]
+[ext_resource type="Texture2D" uid="uid://b36bs5rlgvdaj" path="res://sprites/DungeonFloor_CornerTR.png" id="10_syync"]
+[ext_resource type="Texture2D" uid="uid://bf6gdyk2xs5u6" path="res://sprites/DungeonFloor_CorridorH.png" id="11_nk5le"]
+[ext_resource type="Texture2D" uid="uid://cwjvmuum3rsen" path="res://sprites/DungeonFloor_CorridorV.png" id="12_a3r4t"]
+[ext_resource type="Texture2D" uid="uid://fkunx48dd3m3" path="res://sprites/DungeonFloor_Cross.png" id="13_y8fmy"]
+[ext_resource type="Texture2D" uid="uid://dj7p2rcbptlk4" path="res://sprites/DungeonFloor_Entrance.png" id="14_35k71"]
+[ext_resource type="Texture2D" uid="uid://dvb5kuy2hdeg8" path="res://sprites/DungeonFloor_T-Down.png" id="15_r5hr6"]
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_1b3dl"]
+tile_data = PackedInt32Array(0, 14, 0, 65536, 5, 0, 131072, 14, 0, 1, 6, 0, 65537, 8, 0, 131073, 5, 0, 2, 14, 0, 65538, 5, 0, 131074, 14, 0)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_kchif"]
+tile_data = PackedInt32Array(0, 14, 0, 65536, 5, 0, 131072, 14, 0, 1, 14, 0, 65537, 5, 0, 131073, 14, 0, 2, 14, 0, 65538, 5, 0, 131074, 14, 0)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_nv71p"]
+tile_data = PackedInt32Array(0, 14, 0, 65536, 14, 0, 131072, 14, 0, 1, 14, 0, 65537, 2, 0, 131073, 6, 0, 2, 14, 0, 65538, 5, 0, 131074, 14, 0)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_7e18i"]
+tile_data = PackedInt32Array(0, 14, 0, 65536, 14, 0, 131072, 14, 0, 1, 6, 0, 65537, 6, 0, 131073, 6, 0, 2, 14, 0, 65538, 14, 0, 131074, 14, 0)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_d7kc8"]
+tile_data = PackedInt32Array(0, 14, 0, 65536, 14, 0, 131072, 14, 0, 1, 8, 0, 65537, 11, 0, 131073, 8, 0, 2, 14, 0, 65538, 5, 0, 131074, 14, 0)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_7xmks"]
+tile_data = PackedInt32Array(0, 14, 0, 65536, 5, 0, 131072, 14, 0, 1, 6, 0, 65537, 10, 0, 131073, 6, 0, 2, 14, 0, 65538, 14, 0, 131074, 14, 0)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_ajt5w"]
+tile_data = PackedInt32Array(0, 14, 0, 65536, 9, 0, 131072, 14, 0, 1, 14, 0, 65537, 9, 0, 131073, 6, 0, 2, 14, 0, 65538, 9, 0, 131074, 14, 0)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_3ox51"]
+tile_data = PackedInt32Array(0, 14, 0, 65536, 9, 0, 131072, 14, 0, 1, 12, 0, 65537, 12, 0, 131073, 14, 0, 2, 14, 0, 65538, 9, 0, 131074, 14, 0)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_1piex"]
+tile_data = PackedInt32Array(0, 14, 0, 65536, 5, 0, 131072, 14, 0, 1, 6, 0, 65537, 3, 0, 131073, 14, 0, 2, 14, 0, 65538, 14, 0, 131074, 14, 0)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_poukd"]
+tile_data = PackedInt32Array(0, 14, 0, 65536, 14, 0, 131072, 14, 0, 1, 6, 0, 65537, 4, 0, 131073, 14, 0, 2, 14, 0, 65538, 5, 0, 131074, 14, 0)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_dgsaf"]
+tile_data = PackedInt32Array(0, 14, 0, 65536, 5, 0, 131072, 14, 0, 1, 14, 0, 65537, 1, 0, 131073, 6, 0, 2, 14, 0, 65538, 14, 0, 131074, 14, 0)
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_86m0p"]
+vertices = PackedVector2Array(64, 64, -64, 64, -64, -64, 64, -64)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)])
+agent_radius = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_arn54"]
+texture = ExtResource("1_h4khw")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_86m0p")
+0:0/0/custom_data_0 = true
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_fbi6w"]
+vertices = PackedVector2Array(64, 64, -64, 64, -64, -64, 64, -64)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)])
+agent_radius = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_okqhb"]
+texture = ExtResource("2_juxv3")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_fbi6w")
+0:0/0/custom_data_0 = true
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ysdlx"]
+vertices = PackedVector2Array(64, 64, -64, 64, -64, -64, 64, -64)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)])
+agent_radius = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0y6gh"]
+texture = ExtResource("3_6qird")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_ysdlx")
+0:0/0/custom_data_0 = true
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ttbil"]
+vertices = PackedVector2Array(64, 64, -64, 64, -64, -64, 64, -64)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)])
+agent_radius = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lx3l5"]
+texture = ExtResource("4_d6vae")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_ttbil")
+0:0/0/custom_data_0 = true
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_hfigi"]
+vertices = PackedVector2Array(64, 64, -64, 64, -64, -64, 64, -64)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)])
+agent_radius = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8agab"]
+texture = ExtResource("5_o6p7f")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_hfigi")
+0:0/0/custom_data_0 = true
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4j3hl"]
+texture = ExtResource("6_4wv3i")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_65cyt"]
+texture = ExtResource("7_m1dl8")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ivmcu"]
+vertices = PackedVector2Array(64, 64, -64, 64, -64, -64, 64, -64)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)])
+agent_radius = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eqln8"]
+texture = ExtResource("8_br72c")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_ivmcu")
+0:0/0/custom_data_0 = true
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_8o42y"]
+vertices = PackedVector2Array(64, 64, -64, 64, -64, -64, 64, -64)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)])
+agent_radius = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_07oa3"]
+texture = ExtResource("9_tyn7l")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_8o42y")
+0:0/0/custom_data_0 = true
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_epxip"]
+vertices = PackedVector2Array(64, 64, -64, 64, -64, -64, 64, -64)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)])
+agent_radius = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_80m0y"]
+texture = ExtResource("10_syync")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_epxip")
+0:0/0/custom_data_0 = true
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_7kp1o"]
+vertices = PackedVector2Array(64, 64, -64, 64, -64, -64, 64, -64)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)])
+agent_radius = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v0b0u"]
+texture = ExtResource("11_nk5le")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_7kp1o")
+0:0/0/custom_data_0 = true
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_db1dv"]
+vertices = PackedVector2Array(64, 64, -64, 64, -64, -64, 64, -64)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)])
+agent_radius = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wrvq2"]
+texture = ExtResource("12_a3r4t")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_db1dv")
+0:0/0/custom_data_0 = true
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_0swrk"]
+vertices = PackedVector2Array(64, 64, -64, 64, -64, -64, 64, -64)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)])
+agent_radius = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jasic"]
+texture = ExtResource("13_y8fmy")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_0swrk")
+0:0/0/custom_data_0 = true
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_o0yp4"]
+vertices = PackedVector2Array(64, 64, -64, 64, -64, -64, 64, -64)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)])
+agent_radius = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dejyy"]
+texture = ExtResource("14_35k71")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_o0yp4")
+0:0/0/custom_data_0 = true
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_l5jeg"]
+vertices = PackedVector2Array(64, 64, -64, 64, -64, -64, 64, -64)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)])
+agent_radius = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6rufo"]
+texture = ExtResource("15_r5hr6")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_l5jeg")
+0:0/0/custom_data_0 = true
+
+[resource]
+tile_size = Vector2i(128, 128)
+physics_layer_0/collision_layer = 1
+navigation_layer_0/layers = 1
+custom_data_layer_0/name = "walkable"
+custom_data_layer_0/type = 1
+sources/0 = SubResource("TileSetAtlasSource_arn54")
+sources/1 = SubResource("TileSetAtlasSource_okqhb")
+sources/2 = SubResource("TileSetAtlasSource_eqln8")
+sources/3 = SubResource("TileSetAtlasSource_07oa3")
+sources/4 = SubResource("TileSetAtlasSource_80m0y")
+sources/5 = SubResource("TileSetAtlasSource_v0b0u")
+sources/6 = SubResource("TileSetAtlasSource_wrvq2")
+sources/7 = SubResource("TileSetAtlasSource_jasic")
+sources/8 = SubResource("TileSetAtlasSource_dejyy")
+sources/9 = SubResource("TileSetAtlasSource_6rufo")
+sources/10 = SubResource("TileSetAtlasSource_0y6gh")
+sources/11 = SubResource("TileSetAtlasSource_lx3l5")
+sources/12 = SubResource("TileSetAtlasSource_8agab")
+sources/13 = SubResource("TileSetAtlasSource_4j3hl")
+sources/14 = SubResource("TileSetAtlasSource_65cyt")
+pattern_0 = SubResource("TileMapPattern_1b3dl")
+pattern_1 = SubResource("TileMapPattern_kchif")
+pattern_2 = SubResource("TileMapPattern_7e18i")
+pattern_3 = SubResource("TileMapPattern_d7kc8")
+pattern_4 = SubResource("TileMapPattern_7xmks")
+pattern_5 = SubResource("TileMapPattern_ajt5w")
+pattern_6 = SubResource("TileMapPattern_3ox51")
+pattern_7 = SubResource("TileMapPattern_1piex")
+pattern_8 = SubResource("TileMapPattern_poukd")
+pattern_9 = SubResource("TileMapPattern_dgsaf")
+pattern_10 = SubResource("TileMapPattern_nv71p")
