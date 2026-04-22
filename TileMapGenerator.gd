@@ -1,4 +1,4 @@
-@tool
+
 extends Node
 class_name TileMapGenerator
 ## The class makes generators. Its pretty cool
@@ -19,7 +19,11 @@ enum PatternId {
 	L_SOUTH_WEST,
 }
 
-@export_tool_button("generate", "Callable") var gen = _for_debug_gen
+@export var door_sprite: Sprite2D
+@export var boss_sprite: Sprite2D  
+@export var treasure_sprite: Sprite2D
+
+
 
 ## TileMapLayer that receives the generated patterns.
 @export var tileMap: TileMapLayer
@@ -58,6 +62,13 @@ func _for_debug_gen()->void:
 func _ready() -> void:
 	assert(tileMap.tile_set, "Tile set was not provided in the tilemap layer")
 	gen_map(num_w_cell, num_h_cell, MAXTILES)
+	
+	var spawn   = _find_spawn()
+	var boss    = _find_boss(spawn)
+	var treasure = _find_treasure(spawn)
+
+
+
 
 # Initializes the valid generation bounds in tile coordinates.
 #
@@ -209,6 +220,18 @@ func _find_openings(_pattern: TileMapPattern) -> Dictionary[String,Vector2i]:
 	return openings			
 	
 
+
+
+func _place_objects(spawn: Vector2i, boss: Vector2i, treasure: Vector2i) -> void:
+	# map_to_local gives you the CENTER of the tile in local space
+	# to_global converts it to world space
+	door_sprite.global_position = tileMap.to_global(tileMap.map_to_local(spawn))
+	boss_sprite.global_position = tileMap.to_global(tileMap.map_to_local(boss))
+	treasure_sprite.global_position = tileMap.to_global(tileMap.map_to_local(treasure))
+	
+
+	
+
 ## Generates a map by expanding outward from the starting position.
 ##
 ## Process:
@@ -221,6 +244,9 @@ func _find_openings(_pattern: TileMapPattern) -> Dictionary[String,Vector2i]:
 ##
 ## width and height are measured in pattern slots, not raw tile cells.
 func gen_map(width, height, max_tiles) -> void:
+	tileMap.clear()
+	visited.clear()
+	
 	_init_grid(width, height)
 	
 	# Number of patterns placed so far.
@@ -266,9 +292,57 @@ func gen_map(width, height, max_tiles) -> void:
 		for pos in open_with_off:
 			if not visited.has(pos) and not frontier.has(pos) and _in_range(pos):
 				frontier.append(pos)
-		
 	
-	
+	var spawn: Vector2i = _find_spawn()
+	var boss: Vector2i = _find_boss(spawn)
+	var treasure: Vector2i = _find_treasure(spawn)
+	# At the end of gen_map instead of calling directly
+	call_deferred("_place_objects", spawn, boss, treasure)
 
 
+func _find_spawn() -> Vector2i:
+	var candidates: Array[Vector2i] = []
+	
+	# Check top edge (y == 0)
+	for x in range(0, MAX_W_CELL):
+		var pos = Vector2i(x, 0)
+		if _is_walkable_cell(pos):
+			candidates.append(pos)
+	
+	# Check left edge (x == 0)
+	for y in range(0, MAX_H_CELL):
+		var pos = Vector2i(0, y)
+		if _is_walkable_cell(pos):
+			candidates.append(pos)
+	
+	return candidates.pick_random()
+
+func _find_treasure(spawn: Vector2i) -> Vector2i:
+	var candidates: Array[Vector2i] = []
+	var used_cells = tileMap.get_used_cells()
+
+	for pos in used_cells:
+		if _is_walkable_cell(pos) and pos != spawn:
+			candidates.append(pos)
+
+	return candidates.pick_random()
+
+func _find_boss(spawn: Vector2i) -> Vector2i:
+	var bfs_queue: Array[Vector2i] = [spawn]
+	var bfs_visited: Dictionary = {}
+	bfs_visited[spawn] = true
+	var last: Vector2i = spawn
+
+	var directions = [Vector2i(1,0), Vector2i(-1,0), Vector2i(0,1), Vector2i(0,-1)]
+
+	while not bfs_queue.is_empty():
+		var current = bfs_queue.pop_front()
+		last = current
+		for d in directions:
+			var neighbor = current + d
+			if not bfs_visited.has(neighbor) and _is_walkable_cell(neighbor):
+				bfs_visited[neighbor] = true
+				bfs_queue.append(neighbor)
+
+	return last
  
