@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://dhxgwb3ppb01n"]
+
+[ext_resource type="Script" uid="uid://r11tmqd7audp" path="res://TileMapGenerator.gd" id="2_5lntk"]
+[ext_resource type="TileSet" uid="uid://b56roxkxybviw" path="res://128tilepattern.tres" id="2_vixnb"]
+[ext_resource type="Texture2D" uid="uid://6afdkrsu5v7t" path="res://sprites/Adventurer_Static.png" id="3_wxu4w"]
+[ext_resource type="Texture2D" uid="uid://dveye146n2uox" path="res://sprites/Boss_Static.png" id="4_aq4tv"]
+[ext_resource type="Texture2D" uid="uid://bsy86q5cft8bl" path="res://sprites/Monster_Static.png" id="5_c3fdh"]
+[ext_resource type="Texture2D" uid="uid://ckgq1dlrhe1hj" path="res://sprites/Treasure.png" id="6_60y0o"]
+[ext_resource type="Texture2D" uid="uid://dmc7v2lsf18ss" path="res://sprites/DungeonWall_Border.png" id="7_7xmks"]
+
+[node name="Node2D" type="Node2D" unique_id=703870732]
+
+[node name="Node" type="Node" parent="." unique_id=2074739748 node_paths=PackedStringArray("door_sprite", "boss_sprite", "treasure_sprite", "tileMap")]
+script = ExtResource("2_5lntk")
+door_sprite = NodePath("../door_spwan")
+boss_sprite = NodePath("../BossStatic")
+treasure_sprite = NodePath("../Treasure")
+tileMap = NodePath("TileMapLayer")
+MAXTILES = 9
+pattern_width = 3
+pattern_height = 3
+num_w_cell = 3
+num_h_cell = 3
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Node" unique_id=2061756589]
+tile_set = ExtResource("2_vixnb")
+
+[node name="AdventurerStatic" type="Sprite2D" parent="." unique_id=1703070770]
+z_index = 1
+position = Vector2(-1328, 560)
+texture = ExtResource("3_wxu4w")
+
+[node name="BossStatic" type="Sprite2D" parent="." unique_id=563829287]
+z_index = 1
+position = Vector2(-1232, 568)
+texture = ExtResource("4_aq4tv")
+
+[node name="MonsterStatic" type="Sprite2D" parent="." unique_id=799607002]
+z_index = 1
+position = Vector2(-1112, 568)
+texture = ExtResource("5_c3fdh")
+
+[node name="Treasure" type="Sprite2D" parent="." unique_id=139009065]
+z_index = 1
+position = Vector2(-1384, 600.00006)
+scale = Vector2(0.36000973, 0.3199951)
+texture = ExtResource("6_60y0o")
+
+[node name="door_spwan" type="Sprite2D" parent="." unique_id=165286032]
+z_index = 1
+position = Vector2(-1440, 599.99994)
+scale = Vector2(0.26419842, 0.26419842)
+texture = ExtResource("7_7xmks")

@@ -1,6 +1,16 @@
 [gd_scene format=3 uid="uid://lvq3qltn2day"]
 
 [ext_resource type="Script" uid="uid://bf3lusashb1l1" path="res://scripts/Main.gd" id="1_main"]
+[ext_resource type="Script" uid="uid://bpx0sl7368wn4" path="res://scripts/DungeonGenerator.gd" id="2_m1sh3"]
+[ext_resource type="TileSet" uid="uid://c8hd56rj5g85t" path="res://scripts/DungeonDemoPath.tres" id="3_hakmx"]
 
 [node name="Main" type="Node" unique_id=1605965920]
 script = ExtResource("1_main")
+
+[node name="DungeonGenerator" type="Node" parent="." unique_id=876619843]
+script = ExtResource("2_m1sh3")
+tileset = ExtResource("3_hakmx")
+metadata/_custom_type_script = "uid://bpx0sl7368wn4"
+
+[node name="TileMapLayer" type="TileMapLayer" parent="DungeonGenerator" unique_id=2009512855]
+tile_set = ExtResource("3_hakmx")
