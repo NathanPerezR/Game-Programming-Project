@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://xwvb3swc4nu"]
+
+[ext_resource type="Texture2D" uid="uid://6hd21lpnqccw" path="res://sprites/MainMenu_Screen.png" id="1_06t4h"]
+[ext_resource type="Script" uid="uid://ec3h2eje324l" path="res://scripts/MainMenuController.gd" id="1_7vrkn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7vrkn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fu7sn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jix8l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_glbon"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nlkkf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qe12f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8qtwp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dy7ct"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0o4t1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0k4wn"]
+
+[node name="MainMenu" type="Control" unique_id=1047182682]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 557.0
+offset_top = 306.0
+offset_right = 597.0
+offset_bottom = 346.0
+script = ExtResource("1_7vrkn")
+
+[node name="MainMenuTexture" type="TextureRect" parent="." unique_id=1092094868]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_06t4h")
+
+[node name="NewGameButton" type="Button" parent="." unique_id=1381852233]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -7.5000005
+anchor_top = -1.9000001
+anchor_right = 8.025001
+anchor_bottom = 1.5500001
+offset_left = 3.0517578e-05
+offset_right = -3.0517578e-05
+theme_override_styles/normal = SubResource("StyleBoxEmpty_7vrkn")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_fu7sn")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_jix8l")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_glbon")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nlkkf")
+
+[node name="ExitGameButton" type="Button" parent="." unique_id=1854137604]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -7.5750003
+anchor_top = 2.25
+anchor_right = 8.05
+anchor_bottom = 5.4
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qe12f")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_8qtwp")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_dy7ct")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_0o4t1")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0k4wn")
+
+[connection signal="pressed" from="NewGameButton" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="ExitGameButton" to="." method="_on_exit_game_button_pressed"]
