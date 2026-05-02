@@ -1,0 +1,11 @@
+[gd_scene format=4 uid="uid://bfptp4p66punw"]
+
+[ext_resource type="TileSet" uid="uid://b56roxkxybviw" path="res://128tilepattern.tres" id="1_rinil"]
+[ext_resource type="Script" uid="uid://b5v501qbof35d" path="res://testingtileid.gd" id="2_7pqv5"]
+
+[node name="Node2D" type="Node2D" unique_id=707720030]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1693856666]
+tile_map_data = PackedByteArray("AAAAAAAADgAAAAAAAAAAAAEADgAAAAAAAAAAAAIADgAAAAAAAAABAAAADgAAAAAAAAABAAEAAgAAAAAAAAABAAIABgAAAAAAAAACAAAADgAAAAAAAAACAAEABQAAAAAAAAACAAIADgAAAAAAAAA=")
+tile_set = ExtResource("1_rinil")
+script = ExtResource("2_7pqv5")
