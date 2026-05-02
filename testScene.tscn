@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dmc7v2lsf18ss" path="res://sprites/DungeonWall_Border.png" id="7_7xmks"]
 
 [node name="Node2D" type="Node2D" unique_id=703870732]
+metadata/_edit_vertical_guides_ = [-152.0]
 
 [node name="Node" type="Node" parent="." unique_id=2074739748 node_paths=PackedStringArray("door_sprite", "boss_sprite", "treasure_sprite", "tileMap")]
 script = ExtResource("2_5lntk")
