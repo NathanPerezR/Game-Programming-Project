@@ -15,6 +15,10 @@ run/main_scene="res://scripts/main.tscn"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg")
+
 [layer_names]
 
 2d_navigation/layer_1="Walkable"
