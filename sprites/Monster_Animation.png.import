@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drw4fwhxiiqfc"
-path="res://.godot/imported/Treasure.png-90a68ab3a4f4d054c02477f474b43a78.ctex"
+uid="uid://e2i8x2v11epu"
+path="res://.godot/imported/Monster_Animation.png-7d37d52ca18427262898b32df91481b4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Treasure.png"
-dest_files=["res://.godot/imported/Treasure.png-90a68ab3a4f4d054c02477f474b43a78.ctex"]
+source_file="res://sprites/Monster_Animation.png"
+dest_files=["res://.godot/imported/Monster_Animation.png-7d37d52ca18427262898b32df91481b4.ctex"]
 
 [params]
 

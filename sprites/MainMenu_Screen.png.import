@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drw4fwhxiiqfc"
-path="res://.godot/imported/Treasure.png-90a68ab3a4f4d054c02477f474b43a78.ctex"
+uid="uid://6hd21lpnqccw"
+path="res://.godot/imported/MainMenu_Screen.png-429dacc80e0d52110386693da35ab201.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Treasure.png"
-dest_files=["res://.godot/imported/Treasure.png-90a68ab3a4f4d054c02477f474b43a78.ctex"]
+source_file="res://sprites/MainMenu_Screen.png"
+dest_files=["res://.godot/imported/MainMenu_Screen.png-429dacc80e0d52110386693da35ab201.ctex"]
 
 [params]
 

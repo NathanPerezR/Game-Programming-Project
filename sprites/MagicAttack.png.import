@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drw4fwhxiiqfc"
-path="res://.godot/imported/Treasure.png-90a68ab3a4f4d054c02477f474b43a78.ctex"
+uid="uid://75y68eq2cyb1"
+path="res://.godot/imported/MagicAttack.png-5a62d8f76aae558ed21b9706da793741.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Treasure.png"
-dest_files=["res://.godot/imported/Treasure.png-90a68ab3a4f4d054c02477f474b43a78.ctex"]
+source_file="res://sprites/MagicAttack.png"
+dest_files=["res://.godot/imported/MagicAttack.png-5a62d8f76aae558ed21b9706da793741.ctex"]
 
 [params]
 

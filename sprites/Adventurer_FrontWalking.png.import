@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drw4fwhxiiqfc"
-path="res://.godot/imported/Treasure.png-90a68ab3a4f4d054c02477f474b43a78.ctex"
+uid="uid://c5do5uxchyloy"
+path="res://.godot/imported/Adventurer_FrontWalking.png-b9de74048cfe62524b4c32dc0a3ffb15.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Treasure.png"
-dest_files=["res://.godot/imported/Treasure.png-90a68ab3a4f4d054c02477f474b43a78.ctex"]
+source_file="res://sprites/Adventurer_FrontWalking.png"
+dest_files=["res://.godot/imported/Adventurer_FrontWalking.png-b9de74048cfe62524b4c32dc0a3ffb15.ctex"]
 
 [params]
 
