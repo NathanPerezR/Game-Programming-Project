@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://dducq2ckvxhm8"]
+[gd_scene format=3 uid="uid://xwvb3swc4nu"]
 
 [ext_resource type="Texture2D" uid="uid://6hd21lpnqccw" path="res://sprites/MainMenu_Screen.png" id="1_06t4h"]
-[ext_resource type="Script" path="res://scripts/MainMenuController.gd" id="1_7vrkn"]
+[ext_resource type="Script" uid="uid://ec3h2eje324l" path="res://scripts/MainMenuController.gd" id="1_7vrkn"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7vrkn"]
 

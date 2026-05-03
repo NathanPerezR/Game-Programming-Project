@@ -9,14 +9,14 @@ enum PatternId {
 	CROSS,
 	STRAIGHT_HORIZONTAL,
 	STRAIGHT_VERTICAL,
-	T_WEST,
 	T_EAST,
+	T_WEST,
 	T_SOUTH,
 	T_NORTH,
 	L_NORTH_WEST,
 	L_NORTH_EAST,
-	L_SOUTH_EAST,
 	L_SOUTH_WEST,
+	L_SOUTH_EAST,
 }
 
 @export var door_sprite: Sprite2D
@@ -248,6 +248,9 @@ func gen_map(width, height, max_tiles) -> void:
 	visited.clear()
 	
 	_init_grid(width, height)
+	
+	for i in range(tileMap.tile_set.get_patterns_count()):
+		print("Pattern ", i, ": ", tileMap.tile_set.get_pattern(i))
 	
 	# Number of patterns placed so far.
 	var curr_amt_tiles = 0

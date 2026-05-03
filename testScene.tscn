@@ -5,10 +5,11 @@
 [ext_resource type="Texture2D" uid="uid://6afdkrsu5v7t" path="res://sprites/Adventurer_Static.png" id="3_wxu4w"]
 [ext_resource type="Texture2D" uid="uid://dveye146n2uox" path="res://sprites/Boss_Static.png" id="4_aq4tv"]
 [ext_resource type="Texture2D" uid="uid://bsy86q5cft8bl" path="res://sprites/Monster_Static.png" id="5_c3fdh"]
-[ext_resource type="Texture2D" uid="uid://ckgq1dlrhe1hj" path="res://sprites/Treasure.png" id="6_60y0o"]
+[ext_resource type="Texture2D" uid="uid://drw4fwhxiiqfc" path="res://sprites/Treasure.png" id="6_60y0o"]
 [ext_resource type="Texture2D" uid="uid://dmc7v2lsf18ss" path="res://sprites/DungeonWall_Border.png" id="7_7xmks"]
 
 [node name="Node2D" type="Node2D" unique_id=703870732]
+metadata/_edit_vertical_guides_ = [-152.0]
 
 [node name="Node" type="Node" parent="." unique_id=2074739748 node_paths=PackedStringArray("door_sprite", "boss_sprite", "treasure_sprite", "tileMap")]
 script = ExtResource("2_5lntk")
