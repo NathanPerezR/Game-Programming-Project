@@ -23,7 +23,9 @@ enum PatternId {
 @export var boss_sprite: Sprite2D  
 @export var treasure_sprite: Sprite2D
 
-
+## Emitted when the map has finished generating.
+## spawn_world_pos is the world-space position the player should start at.
+signal map_generated(spawn_world_pos: Vector2i)
 
 ## TileMapLayer that receives the generated patterns.
 @export var tileMap: TileMapLayer
@@ -229,6 +231,10 @@ func _place_objects(spawn: Vector2i, boss: Vector2i, treasure: Vector2i) -> void
 	boss_sprite.global_position = tileMap.to_global(tileMap.map_to_local(boss))
 	treasure_sprite.global_position = tileMap.to_global(tileMap.map_to_local(treasure))
 	
+	# Emit the signal so the Player (and any other listener) knows the map is
+	# ready and where to spawn.  Convert the spawn tile coord to world space.
+	var spawn_world: Vector2 = tileMap.to_global(tileMap.map_to_local(spawn))
+	map_generated.emit(spawn_world)
 
 	
 
