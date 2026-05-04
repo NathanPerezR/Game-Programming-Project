@@ -5,7 +5,7 @@
 [ext_resource type="TileSet" uid="uid://b56roxkxybviw" path="res://128tilepattern.tres" id="2_vixnb"]
 [ext_resource type="Texture2D" uid="uid://6afdkrsu5v7t" path="res://sprites/Adventurer_Static.png" id="3_wxu4w"]
 [ext_resource type="Texture2D" uid="uid://dveye146n2uox" path="res://sprites/Boss_Static.png" id="4_aq4tv"]
-[ext_resource type="Texture2D" uid="uid://bsy86q5cft8bl" path="res://sprites/Monster_Static.png" id="5_c3fdh"]
+[ext_resource type="PackedScene" uid="uid://ds4wcc071hc1g" path="res://player/Player.tscn" id="4_cwcnw"]
 [ext_resource type="Texture2D" uid="uid://drw4fwhxiiqfc" path="res://sprites/Treasure.png" id="6_60y0o"]
 [ext_resource type="Texture2D" uid="uid://dmc7v2lsf18ss" path="res://sprites/DungeonWall_Border.png" id="7_7xmks"]
 [ext_resource type="Script" uid="uid://bf3lusashb1l1" path="res://scripts/Main.gd" id="8_c3fdh"]
@@ -39,11 +39,6 @@ z_index = 1
 position = Vector2(-1232, 568)
 texture = ExtResource("4_aq4tv")
 
-[node name="MonsterStatic" type="Sprite2D" parent="." unique_id=799607002]
-z_index = 1
-position = Vector2(-1112, 568)
-texture = ExtResource("5_c3fdh")
-
 [node name="Treasure" type="Sprite2D" parent="." unique_id=139009065]
 z_index = 1
 position = Vector2(-1384, 600.00006)
@@ -55,6 +50,9 @@ z_index = 1
 position = Vector2(-1440, 599.99994)
 scale = Vector2(0.26419842, 0.26419842)
 texture = ExtResource("7_7xmks")
+
+[node name="Player" parent="." unique_id=1720628272 node_paths=PackedStringArray("tile_map_generator") instance=ExtResource("4_cwcnw")]
+tile_map_generator = NodePath("../Node")
 
 [node name="MapMakerUI" type="CanvasLayer" parent="." unique_id=796328568]
 unique_name_in_owner = true

@@ -5,6 +5,8 @@ class_name TileMapGenerator
 ##
 ## 
 
+signal map_generated
+
 enum PatternId {
 	CROSS,
 	STRAIGHT_HORIZONTAL,
@@ -229,6 +231,10 @@ func _place_objects(spawn: Vector2i, boss: Vector2i, treasure: Vector2i) -> void
 	boss_sprite.global_position = tileMap.to_global(tileMap.map_to_local(boss))
 	treasure_sprite.global_position = tileMap.to_global(tileMap.map_to_local(treasure))
 	
+	# Emit the signal so the Player (and any other listener) knows the map is
+	# ready and where to spawn.  Convert the spawn tile coord to world space.
+	var spawn_world: Vector2 = tileMap.to_global(tileMap.map_to_local(spawn))
+	map_generated.emit(spawn_world)
 
 	
 
@@ -301,6 +307,7 @@ func gen_map(width, height, max_tiles) -> void:
 	var treasure: Vector2i = _find_treasure(spawn)
 	# At the end of gen_map instead of calling directly
 	call_deferred("_place_objects", spawn, boss, treasure)
+	
 
 
 func _find_spawn() -> Vector2i:

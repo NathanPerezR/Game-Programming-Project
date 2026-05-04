@@ -9,6 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://bsy86q5cft8bl" path="res://sprites/Monster_Static.png" id="5_o4va5"]
 [ext_resource type="Texture2D" uid="uid://drw4fwhxiiqfc" path="res://sprites/Treasure.png" id="6_g247k"]
 [ext_resource type="Texture2D" uid="uid://dmc7v2lsf18ss" path="res://sprites/DungeonWall_Border.png" id="7_o6pr8"]
+[ext_resource type="Script" uid="uid://bnrkexror84pf" path="res://player/HealthUI.gd" id="10_g247k"]
+[ext_resource type="PackedScene" uid="uid://ds4wcc071hc1g" path="res://player/Player.tscn" id="10_o4va5"]
+[ext_resource type="Texture2D" uid="uid://dkaq7mbgv24dm" path="res://sprites/HealthIcon.png" id="11_o6pr8"]
 
 [node name="Main" type="Node" unique_id=1714646346]
 script = ExtResource("1_ragmj")
@@ -55,6 +58,16 @@ z_index = 1
 position = Vector2(-1440, 599.99994)
 scale = Vector2(0.26419842, 0.26419842)
 texture = ExtResource("7_o6pr8")
+
+[node name="PlayerNode" type="Node" parent="." unique_id=1390257910]
+
+[node name="Player" parent="PlayerNode" unique_id=1720628272 node_paths=PackedStringArray("tile_map_generator") instance=ExtResource("10_o4va5")]
+tile_map_generator = NodePath("../../TileMapGenerator")
+
+[node name="PlayerHealth" type="CanvasLayer" parent="PlayerNode" unique_id=165986407 node_paths=PackedStringArray("player")]
+script = ExtResource("10_g247k")
+heart_texture = ExtResource("11_o6pr8")
+player = NodePath("../Player")
 
 [node name="MapMakerUI" type="CanvasLayer" parent="." unique_id=2001904488]
 unique_name_in_owner = true
