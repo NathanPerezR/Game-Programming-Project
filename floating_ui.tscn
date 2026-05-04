@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bmwlipturah4w"]
+
+[ext_resource type="Script" uid="uid://favfxbdkfkbg" path="res://floating_ui.gd" id="1_htr5x"]
+
+[node name="FloatingUI" type="CanvasLayer" unique_id=1340707550]
+script = ExtResource("1_htr5x")
