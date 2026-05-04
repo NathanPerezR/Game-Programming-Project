@@ -5,7 +5,6 @@ var score_panel:      Control
 var menu_panel:       Control
 var score_icon_btn:   TextureButton
 var menu_icon_btn:    TextureButton
-var map_icon_btn:     TextureButton
 
 var label_total:    Label
 var label_exact:    Label
@@ -36,15 +35,15 @@ func _build_floating_buttons() -> void:
 
 	score_icon_btn = _make_icon_btn("res://sprites/ScoreIcon.png")
 	menu_icon_btn  = _make_icon_btn("res://sprites/MenuIcon_Green.png")
-	map_icon_btn   = _make_icon_btn("res://sprites/MapIcon.png")
+	
 
 	container.add_child(score_icon_btn)
 	container.add_child(menu_icon_btn)
-	container.add_child(map_icon_btn)
+	
 
 	score_icon_btn.pressed.connect(_on_score_icon_pressed)
 	menu_icon_btn.pressed.connect(_on_menu_icon_pressed)
-	map_icon_btn.pressed.connect(_on_map_icon_pressed)
+	
 
 	await get_tree().process_frame
 	_menu_btn_position = menu_icon_btn.get_global_rect().position
@@ -277,12 +276,6 @@ func _on_score_icon_pressed() -> void:
 func _on_menu_icon_pressed() -> void:
 	score_panel.visible = false
 	menu_panel.visible  = !menu_panel.visible
-
-func _on_map_icon_pressed() -> void:
-	var map_grid = get_tree().current_scene.find_child("MapGrid", true, false)
-	if map_grid:
-		map_grid.visible = !map_grid.visible
-		_map_visible     = map_grid.visible
 
 func _on_close_pressed() -> void:
 	score_panel.visible = false
