@@ -1,6 +1,5 @@
-## Main controller that wires together the map grid, palette, toolbar, and status bar.
-
 extends CanvasLayer
+## Main controller that wires together the map grid, palette, toolbar, and status bar.
 
 var map_grid: MapGrid
 var tile_palette: TilePalette
