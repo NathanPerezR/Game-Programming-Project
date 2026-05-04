@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dkm5invaoysix"]
+
+[ext_resource type="Script" uid="uid://bf3lusashb1l1" path="res://scripts/Main.gd" id="1_bm5oi"]
+[ext_resource type="Script" uid="uid://bpx0sl7368wn4" path="res://scripts/DungeonGenerator.gd" id="2_nhn1d"]
+[ext_resource type="TileSet" uid="uid://c8hd56rj5g85t" path="res://scripts/DungeonDemoPath.tres" id="3_h512i"]
+
+[node name="MapMaker" type="CanvasLayer" unique_id=2001035972]
+script = ExtResource("1_bm5oi")
+
+[node name="DungeonGenerator" type="Node" parent="." unique_id=555708826]
+script = ExtResource("2_nhn1d")
+tileset = ExtResource("3_h512i")
+metadata/_custom_type_script = "uid://bpx0sl7368wn4"
+
+[node name="TileMapLayer" type="TileMapLayer" parent="DungeonGenerator" unique_id=459189443]
+tile_set = ExtResource("3_h512i")
