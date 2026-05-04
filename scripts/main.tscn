@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://drw4fwhxiiqfc" path="res://sprites/Treasure.png" id="6_g247k"]
 [ext_resource type="Texture2D" uid="uid://dmc7v2lsf18ss" path="res://sprites/DungeonWall_Border.png" id="7_o6pr8"]
 [ext_resource type="Script" uid="uid://bnrkexror84pf" path="res://player/HealthUI.gd" id="10_g247k"]
-[ext_resource type="PackedScene" path="res://score_ui.tscn" id="10_o4va5"]
+[ext_resource type="PackedScene" uid="uid://cj4ah814q75gs" path="res://score_ui.tscn" id="10_o4va5"]
 [ext_resource type="Texture2D" uid="uid://dkaq7mbgv24dm" path="res://sprites/HealthIcon.png" id="11_o6pr8"]
 [ext_resource type="PackedScene" uid="uid://ds4wcc071hc1g" path="res://player/Player.tscn" id="12_0d3j1"]
 
