@@ -204,7 +204,7 @@ func _on_score_pressed() -> void:
 	var result     := score(player_map)
 	result.print_summary()
 	status_bar.show_score(result)
-	get_parent().get_node("FloatingUI").show_score_result(result)
+	get_parent().get_node("ScoreUI").show_score_result(result)
 
 func _build_player_map() -> Dictionary:
 	var player_map: Dictionary = {}

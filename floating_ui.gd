@@ -20,107 +20,7 @@ var _menu_btn_position:  Vector2 = Vector2.ZERO
 
 # ── Ready ─────────────────────────────────────────────────────────────────────
 func _ready() -> void:
-	_build_floating_buttons()
 	_build_score_panel()
-	_build_menu_panel()
-
-
-# ── Floating buttons ──────────────────────────────────────────────────────────
-func _build_floating_buttons() -> void:
-	var container = HBoxContainer.new()
-	container.set_anchors_preset(Control.PRESET_TOP_RIGHT)
-	container.position = Vector2(-224, 12)
-	container.add_theme_constant_override("separation", 8)
-	add_child(container)
-
-	score_icon_btn = _make_icon_btn("res://sprites/ScoreIcon.png")
-	menu_icon_btn  = _make_icon_btn("res://sprites/MenuIcon_Green.png")
-	
-
-	container.add_child(score_icon_btn)
-	container.add_child(menu_icon_btn)
-	
-
-	score_icon_btn.pressed.connect(_on_score_icon_pressed)
-	menu_icon_btn.pressed.connect(_on_menu_icon_pressed)
-	
-
-	await get_tree().process_frame
-	_menu_btn_position = menu_icon_btn.get_global_rect().position
-
-
-func _make_icon_btn(texture_path: String) -> TextureButton:
-	var btn = TextureButton.new()
-	btn.texture_normal      = load(texture_path)
-	btn.custom_minimum_size = Vector2(64, 64)
-	btn.stretch_mode        = TextureButton.STRETCH_KEEP_ASPECT_CENTERED
-	btn.ignore_texture_size = true
-	return btn
-
-
-# ── Menu panel ────────────────────────────────────────────────────────────────
-func _build_menu_panel() -> void:
-	menu_panel = Control.new()
-	menu_panel.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	menu_panel.visible = false
-	add_child(menu_panel)
-
-	var backdrop = ColorRect.new()
-	backdrop.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	backdrop.color = Color(0, 0, 0, 0.55) # 55% opacity
-	backdrop.gui_input.connect(_on_menu_backdrop_input)
-	menu_panel.add_child(backdrop)
-
-	var sprite_w: float = 398.0
-	var sprite_h: float = 246.0
-
-	var popup_root = Control.new()
-	popup_root.custom_minimum_size = Vector2(sprite_w, sprite_h)
-	popup_root.size = Vector2(sprite_w, sprite_h)
-
-	# Hardcode position from the right edge of the screen.
-	# Button bar is at x=-224 from right, y=12 from top.
-	# Menu icon is 2nd button: score(64) + gap(8) = 72px into the container.
-	# Menu icon right edge = screen_w - 224 + 72 + 64 = screen_w - 88.
-	# Popup right edge aligns to that: x = screen_w - 88 - sprite_w.
-	var screen_w := get_viewport().get_visible_rect().size.x
-	popup_root.position = Vector2(
-		screen_w - 88.0 - sprite_w, # Align right edge under the menu icon
-		12.0 + 64.0 + 4.0           # y=12 bar top + 64 button height + 4px gap
-	)
-	menu_panel.add_child(popup_root)
-
-	var bg = TextureRect.new()
-	bg.texture      = load("res://sprites/Menu_Popup.png")
-	bg.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	bg.stretch_mode = TextureRect.STRETCH_SCALE
-	popup_root.add_child(bg)
-
-	var restart_btn = _make_invisible_button()
-	restart_btn.position = Vector2(0, 0)
-	restart_btn.size     = Vector2(sprite_w, sprite_h * 0.5) # Top half of sprite
-	restart_btn.pressed.connect(_on_restart_pressed)
-	popup_root.add_child(restart_btn)
-
-	var exit_btn = _make_invisible_button()
-	exit_btn.position = Vector2(0, sprite_h * 0.5)            # Bottom half of sprite
-	exit_btn.size     = Vector2(sprite_w, sprite_h * 0.5)
-	exit_btn.pressed.connect(_on_exit_pressed)
-	popup_root.add_child(exit_btn)
-
-
-func _make_invisible_button() -> Button:
-	var btn   = Button.new()
-	var empty = StyleBoxEmpty.new()
-	btn.add_theme_stylebox_override("normal",   empty)
-	btn.add_theme_stylebox_override("hover",    empty)
-	btn.add_theme_stylebox_override("pressed",  empty)
-	btn.add_theme_stylebox_override("focus",    empty)
-	btn.add_theme_stylebox_override("disabled", empty)
-	btn.text     = ""
-	btn.modulate = Color(1, 1, 1, 0) # Alpha 0 — invisible but still clickable
-	return btn
-
 
 # ── Score panel ───────────────────────────────────────────────────────────────
 func _build_score_panel() -> void:
@@ -272,10 +172,6 @@ func _grade_color(grade: String) -> Color:
 func _on_score_icon_pressed() -> void:
 	menu_panel.visible  = false
 	score_panel.visible = !score_panel.visible
-
-func _on_menu_icon_pressed() -> void:
-	score_panel.visible = false
-	menu_panel.visible  = !menu_panel.visible
 
 func _on_close_pressed() -> void:
 	score_panel.visible = false
