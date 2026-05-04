@@ -390,10 +390,23 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k6gjx"]
 size = Vector2(34, 34)
 
-[node name="Player" type="CharacterBody2D" unique_id=1720628272]
+[sub_resource type="Gradient" id="Gradient_aqcbf"]
+colors = PackedColorArray(1, 1, 0.8156863, 1, 0.11405022, 0.108861215, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gskgj"]
+gradient = SubResource("Gradient_aqcbf")
+fill = 1
+fill_from = Vector2(0.51953125, 0.4921875)
+
+[node name="Player" type="CharacterBody2D" unique_id=1720628272 node_paths=PackedStringArray("iframe_timer")]
 z_index = 1
+collision_mask = 10
+motion_mode = 1
+platform_on_leave = 2
 script = ExtResource("1_dtqjt")
 speed = 240.0
+damage_to_take_on_collision = 1
+iframe_timer = NodePath("Timer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1178333905]
 scale = Vector2(1.5, 2)
@@ -404,7 +417,8 @@ sprite_frames = SubResource("SpriteFrames_60y0o")
 animation = &"left_walk"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=588276376]
-zoom = Vector2(3, 3)
+zoom = Vector2(4, 4)
+position_smoothing_enabled = true
 
 [node name="MagicAttack" type="Area2D" parent="." unique_id=1766491383]
 z_index = 1
@@ -421,3 +435,14 @@ position = Vector2(-1010, 608)
 shape = SubResource("RectangleShape2D_k6gjx")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2062453110]
+
+[node name="Timer" type="Timer" parent="." unique_id=678045061]
+wait_time = 1.2
+one_shot = true
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1048271984]
+scale = Vector2(2, 2)
+energy = 2.0
+blend_mode = 2
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_gskgj")

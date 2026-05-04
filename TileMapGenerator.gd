@@ -7,6 +7,8 @@ class_name TileMapGenerator
 
 signal map_generated
 
+const DEBUG_LEVEL: int = 20
+
 enum PatternId {
 	CROSS,
 	STRAIGHT_HORIZONTAL,
@@ -22,7 +24,7 @@ enum PatternId {
 }
 
 @export var door_sprite: Sprite2D
-@export var boss_sprite: Sprite2D  
+#@export var boss_sprite: Sprite2D  
 @export var treasure_sprite: Sprite2D
 
 
@@ -66,7 +68,7 @@ func _ready() -> void:
 	gen_map(num_w_cell, num_h_cell, MAXTILES)
 	
 	var spawn   = _find_spawn()
-	var boss    = _find_boss(spawn)
+	#var boss    = _find_boss(spawn)
 	var treasure = _find_treasure(spawn)
 
 
@@ -130,7 +132,7 @@ func choose_rand_pattern()-> TileMapPattern:
 		 "west":false
 		}
 	for key in dir:
-		print("Current ID of Tile: ", tileMap.get_cell_source_id(dir[key]))
+		#print("Current ID of Tile: ", tileMap.get_cell_source_id(dir[key]))
 		if _is_walkable_cell(dir[key]):
 			d[key] = true	
 		
@@ -228,7 +230,7 @@ func _place_objects(spawn: Vector2i, boss: Vector2i, treasure: Vector2i) -> void
 	# map_to_local gives you the CENTER of the tile in local space
 	# to_global converts it to world space
 	door_sprite.global_position = tileMap.to_global(tileMap.map_to_local(spawn))
-	boss_sprite.global_position = tileMap.to_global(tileMap.map_to_local(boss))
+	#boss_sprite.global_position = tileMap.to_global(tileMap.map_to_local(boss))
 	treasure_sprite.global_position = tileMap.to_global(tileMap.map_to_local(treasure))
 	
 	# Emit the signal so the Player (and any other listener) knows the map is
@@ -255,8 +257,8 @@ func gen_map(width, height, max_tiles) -> void:
 	
 	_init_grid(width, height)
 	
-	for i in range(tileMap.tile_set.get_patterns_count()):
-		print("Pattern ", i, ": ", tileMap.tile_set.get_pattern(i))
+	#for i in range(tileMap.tile_set.get_patterns_count()):
+		#print("Pattern ", i, ": ", tileMap.tile_set.get_pattern(i))
 	
 	# Number of patterns placed so far.
 	var curr_amt_tiles = 0
@@ -309,7 +311,10 @@ func gen_map(width, height, max_tiles) -> void:
 	call_deferred("_place_objects", spawn, boss, treasure)
 	
 
-
+## returns the RID of the navigation server for the map
+func get_nav_rid() -> RID:
+	return self.tileMap.get_navigation_map()
+	
 func _find_spawn() -> Vector2i:
 	var candidates: Array[Vector2i] = []
 	

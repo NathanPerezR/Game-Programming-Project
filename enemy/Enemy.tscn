@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://1vnjlg5cbw6t"]
+
+[ext_resource type="Script" uid="uid://ck1j8jcbp1ykb" path="res://enemy/enemy.gd" id="1_7lgfl"]
+[ext_resource type="Texture2D" uid="uid://bsy86q5cft8bl" path="res://sprites/Monster_Static.png" id="1_d1f0f"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_7lgfl"]
+polygon = PackedVector2Array(-8, 1, -8, -7, 16, -7, 16, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q3d5o"]
+size = Vector2(96, 48)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d1f0f"]
+radius = 1308.801
+
+[node name="Enemy" type="CharacterBody2D" unique_id=241729150]
+collision_layer = 2
+collision_mask = 9
+motion_mode = 1
+platform_on_leave = 2
+script = ExtResource("1_7lgfl")
+speed = 35.0
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=96498796]
+visible = false
+position = Vector2(0, -1)
+occluder = SubResource("OccluderPolygon2D_7lgfl")
+sdf_collision = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=583774359]
+position = Vector2(0, -32)
+shape = SubResource("RectangleShape2D_q3d5o")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1332901995]
+z_index = 1
+position = Vector2(0, -64)
+texture = ExtResource("1_d1f0f")
+
+[node name="PlayerDetection" type="Area2D" parent="." unique_id=611123524]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection" unique_id=285352699]
+position = Vector2(8, -56)
+shape = SubResource("CircleShape2D_d1f0f")
+
+[node name="EnemyPathfinding" type="NavigationAgent2D" parent="." unique_id=151835130]
+unique_name_in_owner = true
+
+[connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
+[connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]

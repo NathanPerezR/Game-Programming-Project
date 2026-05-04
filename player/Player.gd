@@ -20,6 +20,10 @@ class_name Player
 ## How long (seconds) the attack hitbox stays active.
 @export var attack_duration: float = 1.0
 
+@export var damage_to_take_on_collision: int = 10
+
+@export var iframe_timer: Timer
+@export var game_over_ui: CanvasLayer
 # ─────────────────────────────────────────────
 #  SIGNALS
 # ─────────────────────────────────────────────
@@ -50,6 +54,7 @@ var _last_direction: String = "right"
 var _current_health: int
 var _is_attacking: bool = false
 var _attack_timer: float = 0.0
+var _can_take_damage: bool = true
 
 # ─────────────────────────────────────────────
 #  NODE REFERENCES
@@ -73,6 +78,8 @@ func _ready() -> void:
 	# Hide the attack effect until the player fires.
 	_attack_area.visible = false
 	_attack_area.monitoring = false
+	
+	iframe_timer.timeout.connect(_iframe_timer_timeout)
 
 	if tile_map_generator:
 		_tile_map = tile_map_generator.tileMap
@@ -135,8 +142,11 @@ func _handle_movement(delta: float) -> void:
 					desired_velocity = Vector2.ZERO
 
 	velocity = desired_velocity
-	move_and_slide()
-
+	var collided = move_and_slide()
+	if collided: 
+		for i in range(get_slide_collision_count()):
+			if get_slide_collision(i).get_collider() is Enemy:
+				take_damage(damage_to_take_on_collision)
 # ─────────────────────────────────────────────
 #  ATTACK
 # ─────────────────────────────────────────────
@@ -191,11 +201,14 @@ func _end_attack() -> void:
 ## Called by a monster (or any damage source) to reduce player health.
 ## amount should be a positive integer.
 func take_damage(amount: int) -> void:
+	if not _can_take_damage: return
+	_can_take_damage = false
 	_current_health = max(0, _current_health - amount)
 	emit_signal("health_changed", _current_health)
 	if _current_health == 0:
 		emit_signal("player_died")
 		_on_death()
+	iframe_timer.start()
 
 ## Called by healing items or effects.
 func heal(amount: int) -> void:
@@ -208,6 +221,7 @@ func get_health() -> int:
 func _on_death() -> void:
 	# Placeholder — add game-over logic here later.
 	push_warning("Player died!")
+	game_over_ui.visible = true
 
 # ─────────────────────────────────────────────
 #  ANIMATIONS
@@ -268,6 +282,8 @@ func _play_animation(anim_name: String) -> void:
 	if _animated_sprite.animation != anim_name:
 		_animated_sprite.play(anim_name)
 
+func _iframe_timer_timeout() -> void:
+	_can_take_damage = true
 # ─────────────────────────────────────────────
 #  COMBAT INTEGRATION NOTE (for your teammate)
 # ─────────────────────────────────────────────

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://camuthy13y5i8"]
 
-[ext_resource type="Texture2D" uid="uid://6hd21lpnqccw" path="res://sprites/MainMenu_Screen.png" id="1_06t4h"]
-[ext_resource type="Script" uid="uid://ec3h2eje324l" path="res://scripts/MainMenuController.gd" id="1_7vrkn"]
+[ext_resource type="Script" uid="uid://ec3h2eje324l" path="res://scripts/MainMenuController.gd" id="1_ekxnf"]
+[ext_resource type="Texture2D" uid="uid://6hd21lpnqccw" path="res://sprites/MainMenu_Screen.png" id="2_bqqt6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7vrkn"]
 
@@ -25,12 +25,12 @@
 
 [node name="MainMenu" type="Control" unique_id=1047182682]
 layout_mode = 3
-anchors_preset = 0
-offset_left = 557.0
-offset_top = 306.0
-offset_right = 597.0
-offset_bottom = 346.0
-script = ExtResource("1_7vrkn")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ekxnf")
 
 [node name="MainMenuTexture" type="TextureRect" parent="." unique_id=1092094868]
 layout_mode = 1
@@ -39,7 +39,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_06t4h")
+texture = ExtResource("2_bqqt6")
 
 [node name="NewGameButton" type="Button" parent="." unique_id=1381852233]
 layout_mode = 1

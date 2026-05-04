@@ -176,9 +176,10 @@ func _on_score_icon_pressed() -> void:
 func _on_close_pressed() -> void:
 	score_panel.visible = false
 
+
 func _on_restart_pressed() -> void:
 	# currently set to main, need to set to testScene
-	get_tree().change_scene_to_file("res://scripts/main.tscn")
+	get_tree().change_scene_to_file("uid://lvq3qltn2day")
 
 func _on_exit_pressed() -> void:
 	get_tree().quit()

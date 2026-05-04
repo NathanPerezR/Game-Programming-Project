@@ -50,7 +50,9 @@ attack={
 
 [layer_names]
 
+2d_physics/layer_1="Player"
 2d_navigation/layer_1="Walkable"
+2d_physics/layer_2="Enemy"
 2d_physics/layer_4="Walls"
 
 [physics]
