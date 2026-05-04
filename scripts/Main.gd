@@ -202,6 +202,7 @@ func _on_score_pressed() -> void:
 	var result     := score(player_map)
 	result.print_summary()
 	status_bar.show_score(result)
+	get_parent().get_node("FloatingUI").show_score_result(result)
 
 func _build_player_map() -> Dictionary:
 	var player_map: Dictionary = {}
@@ -312,8 +313,8 @@ func score(player_map: Dictionary) -> ScoreResult:
 			result.largest_cluster   = max(result.largest_cluster, sz)
 
 	result.total_score = mini(
-    result.base_points + result.near_miss_points + result.cluster_bonus,
-    _max_score
+	result.base_points + result.near_miss_points + result.cluster_bonus,
+	_max_score
 	) # i am just clamping the value - jank
 	result.accuracy    = float(result.total_score) / float(_max_score) if _max_score > 0 else 0.0
 	return result

@@ -11,17 +11,8 @@
 [node name="Node2D" type="Node2D" unique_id=703870732]
 metadata/_edit_vertical_guides_ = [-152.0]
 
-[node name="Node" type="Node" parent="." unique_id=2074739748 node_paths=PackedStringArray("door_sprite", "boss_sprite", "treasure_sprite", "tileMap")]
+[node name="Node" type="Node" parent="." unique_id=2074739748]
 script = ExtResource("2_5lntk")
-door_sprite = NodePath("../door_spwan")
-boss_sprite = NodePath("../BossStatic")
-treasure_sprite = NodePath("../Treasure")
-tileMap = NodePath("TileMapLayer")
-MAXTILES = 9
-pattern_width = 3
-pattern_height = 3
-num_w_cell = 3
-num_h_cell = 3
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Node" unique_id=2061756589]
 tile_set = ExtResource("2_vixnb")
