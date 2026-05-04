@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://drw4fwhxiiqfc" path="res://sprites/Treasure.png" id="6_60y0o"]
 [ext_resource type="Texture2D" uid="uid://dmc7v2lsf18ss" path="res://sprites/DungeonWall_Border.png" id="7_7xmks"]
 [ext_resource type="Script" uid="uid://bf3lusashb1l1" path="res://scripts/Main.gd" id="8_c3fdh"]
-[ext_resource type="PackedScene" uid="uid://bc3hsvkq1bbbm" path="res://score_ui.tscn" id="10_cwcnw"]
 
 [node name="Node2D" type="Node2D" unique_id=703870732]
 script = ExtResource("1_60y0o")
@@ -56,10 +55,3 @@ z_index = 1
 position = Vector2(-1440, 599.99994)
 scale = Vector2(0.26419842, 0.26419842)
 texture = ExtResource("7_7xmks")
-
-[node name="MapMakerUI" type="CanvasLayer" parent="." unique_id=796328568]
-unique_name_in_owner = true
-visible = false
-script = ExtResource("8_c3fdh")
-
-[node name="ScoreUI" parent="." unique_id=769726967 instance=ExtResource("10_cwcnw")]
