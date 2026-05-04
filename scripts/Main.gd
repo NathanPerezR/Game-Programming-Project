@@ -199,11 +199,13 @@ func _on_clear_pressed() -> void:
 	status_bar.update_count(0)
 
 func _on_score_pressed() -> void:
+	print(get_tree().current_scene)
 	var player_map := _build_player_map()
 	var result     := score(player_map)
 	result.print_summary()
 	status_bar.show_score(result)
 	get_parent().get_node("ScoreUI").show_score_result(result)
+
 
 func _build_player_map() -> Dictionary:
 	var player_map: Dictionary = {}
