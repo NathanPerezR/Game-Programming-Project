@@ -1,6 +1,62 @@
 [gd_scene format=3 uid="uid://lvq3qltn2day"]
 
+[ext_resource type="Script" uid="uid://r11tmqd7audp" path="res://TileMapGenerator.gd" id="1_0aq6d"]
 [ext_resource type="Script" uid="uid://bf3lusashb1l1" path="res://scripts/Main.gd" id="1_main"]
+[ext_resource type="Script" uid="uid://da2jlupfpwjgu" path="res://test_scene.gd" id="1_ragmj"]
+[ext_resource type="TileSet" uid="uid://b56roxkxybviw" path="res://128tilepattern.tres" id="2_irwmq"]
+[ext_resource type="Texture2D" uid="uid://6afdkrsu5v7t" path="res://sprites/Adventurer_Static.png" id="3_dkw4t"]
+[ext_resource type="Texture2D" uid="uid://dveye146n2uox" path="res://sprites/Boss_Static.png" id="4_ragmj"]
+[ext_resource type="Texture2D" uid="uid://bsy86q5cft8bl" path="res://sprites/Monster_Static.png" id="5_o4va5"]
+[ext_resource type="Texture2D" uid="uid://drw4fwhxiiqfc" path="res://sprites/Treasure.png" id="6_g247k"]
+[ext_resource type="Texture2D" uid="uid://dmc7v2lsf18ss" path="res://sprites/DungeonWall_Border.png" id="7_o6pr8"]
 
-[node name="Main" type="Node" unique_id=1605965920]
+[node name="Main" type="Node" unique_id=1714646346]
+script = ExtResource("1_ragmj")
+
+[node name="TileMapGenerator" type="Node" parent="." unique_id=209661333 node_paths=PackedStringArray("door_sprite", "boss_sprite", "treasure_sprite", "tileMap")]
+script = ExtResource("1_0aq6d")
+door_sprite = NodePath("door_spwan")
+boss_sprite = NodePath("BossStatic")
+treasure_sprite = NodePath("Treasure")
+tileMap = NodePath("TileMapLayer")
+MAXTILES = 9
+pattern_width = 3
+pattern_height = 3
+num_w_cell = 3
+num_h_cell = 3
+metadata/_custom_type_script = "uid://r11tmqd7audp"
+
+[node name="TileMapLayer" type="TileMapLayer" parent="TileMapGenerator" unique_id=1979521157]
+tile_set = ExtResource("2_irwmq")
+
+[node name="AdventurerStatic" type="Sprite2D" parent="TileMapGenerator" unique_id=736302789]
+z_index = 1
+position = Vector2(-1328, 560)
+texture = ExtResource("3_dkw4t")
+
+[node name="BossStatic" type="Sprite2D" parent="TileMapGenerator" unique_id=1831462851]
+z_index = 1
+position = Vector2(-1232, 568)
+texture = ExtResource("4_ragmj")
+
+[node name="MonsterStatic" type="Sprite2D" parent="TileMapGenerator" unique_id=344862141]
+z_index = 1
+position = Vector2(-1112, 568)
+texture = ExtResource("5_o4va5")
+
+[node name="Treasure" type="Sprite2D" parent="TileMapGenerator" unique_id=2083251830]
+z_index = 1
+position = Vector2(-1384, 600.00006)
+scale = Vector2(0.36000973, 0.3199951)
+texture = ExtResource("6_g247k")
+
+[node name="door_spwan" type="Sprite2D" parent="TileMapGenerator" unique_id=1982710444]
+z_index = 1
+position = Vector2(-1440, 599.99994)
+scale = Vector2(0.26419842, 0.26419842)
+texture = ExtResource("7_o6pr8")
+
+[node name="MapMakerUI" type="CanvasLayer" parent="." unique_id=2001904488]
+unique_name_in_owner = true
+visible = false
 script = ExtResource("1_main")
