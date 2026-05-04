@@ -153,9 +153,9 @@ func _build_toolbar() -> VBoxContainer:
 	score_btn.pressed.connect(_on_score_pressed)
 	hbox.add_child(score_btn)
 	
-	var return_btn = _make_toolbar_button("Return", Color(0.20, 0.35, 0.55))
-	score_btn.pressed.connect(_on_return_pressed)
-	hbox.add_child(score_btn)
+	#var return_btn = _make_toolbar_button("Return", Color(0.20, 0.35, 0.55))
+	#score_btn.pressed.connect(_on_return_pressed)
+	#hbox.add_child(score_btn)
 
 	var demo_btn = _make_toolbar_button("Load Example", Color(0.20, 0.35, 0.55))
 	demo_btn.pressed.connect(_on_demo_pressed)
@@ -207,7 +207,7 @@ func _on_score_pressed() -> void:
 	result.print_summary()
 	status_bar.show_score(result)
 	
-func _on_return_pressed() -> void:
+#func _on_return_pressed() -> void:
 	
 
 func _build_player_map() -> Dictionary:
