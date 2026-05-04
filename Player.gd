@@ -103,21 +103,31 @@ func _physics_process(delta: float) -> void:
 	velocity = desired_velocity
 	move_and_slide()
 
-	# ── Sprite flip ────────────────────────────
+	# ── Animations ─────────────────────────────
+	# We track the last horizontal direction so that when the player
+	# stops while moving left/right we show the correct idle.
 	if velocity.x > 0.0:
 		_facing_right = true
-		_animated_sprite.flip_h = false
 	elif velocity.x < 0.0:
 		_facing_right = false
-		_animated_sprite.flip_h = true
 
-	# ── Animations ─────────────────────────────
-	# Phase 1: idle / walk only.
-	# (Attack animations will be added in Phase 2.)
+	# No flip needed — left_walk and right_walk are separate animations.
+	_animated_sprite.flip_h = false
+
 	if velocity == Vector2.ZERO:
 		_play_animation("idle")
 	else:
-		_play_animation("walk")
+		# Vertical movement takes priority when both axes are held.
+		if abs(velocity.y) >= abs(velocity.x):
+			if velocity.y > 0.0:
+				_play_animation("front_walk")   # S — moving down toward camera
+			else:
+				_play_animation("back_walk")    # W — moving up away from camera
+		else:
+			if velocity.x > 0.0:
+				_play_animation("right_walk")   # D
+			else:
+				_play_animation("left_walk")    # A
 
 # ─────────────────────────────────────────────
 #  HELPERS
