@@ -1,4 +1,6 @@
-extends Node
+## Main controller that wires together the map grid, palette, toolbar, and status bar.
+
+extends CanvasLayer
 
 var map_grid: MapGrid
 var tile_palette: TilePalette
@@ -202,8 +204,6 @@ func _on_score_pressed() -> void:
 	var result     := score(player_map)
 	result.print_summary()
 	status_bar.show_score(result)
-	# added to link UI and score
-	get_parent().get_node("FloatingUI").show_score_result(result)
 
 func _build_player_map() -> Dictionary:
 	var player_map: Dictionary = {}
