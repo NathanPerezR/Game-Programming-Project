@@ -1,6 +1,6 @@
 ## Main controller that wires together the map grid, palette, toolbar, and status bar.
 
-extends Node
+extends CanvasLayer
 
 var map_grid: MapGrid
 var tile_palette: TilePalette
