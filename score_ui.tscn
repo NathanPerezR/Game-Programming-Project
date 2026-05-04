@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cj4ah814q75gs"]
+
+[ext_resource type="Script" uid="uid://favfxbdkfkbg" path="res://floating_ui.gd" id="1_iqr5w"]
+
+[node name="ScoreUI" type="CanvasLayer" unique_id=769726967]
+script = ExtResource("1_iqr5w")
